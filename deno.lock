@@ -4,7 +4,7 @@
     "npm:@modelcontextprotocol/sdk@^1.32.2": "1.32.2_zod@4.6.7",
     "npm:age-encryption@~0.3.1": "0.3.1",
     "npm:otpauth@^9.5.2": "9.6.0",
-    "npm:playwright-core@^1.64.1": "1.64.1",
+    "npm:playwright-core@1.61": "1.61.1",
     "npm:zod@^4.6.7": "4.6.7"
   },
   "npm": {
@@ -414,8 +414,8 @@
     "pkce-challenge@5.0.1": {
       "integrity": "sha512-wQ0b/W4Fr01qtpHlqSqspcj3EhBvimsdh0KlHhH8HRZnMsEa0ea2fTULOXOS9ccQr3om+GcGRk4e+isrZWV8qQ=="
     },
-    "playwright-core@1.64.1": {
-      "integrity": "sha512-BC4s8y6SEVA6Q1rSxZTto8hI1KUI3xXlHGZgvGqP4IqPdI/a6FX9H29IDNz7vKo9l21b6LfYosScPL6M3xxyDQ==",
+    "playwright-core@1.61.1": {
+      "integrity": "sha512-h7Qlt6m4REp25qvIdvbDtVmD4LqVXfpRxhORv9L0jzETM05p4fuPJ3dKyuSXQxDSbXnmS79HAgi9589lGSpLkg==",
       "bin": true
     },
     "proxy-addr@2.0.8": {
@@ -578,7 +578,7 @@
       "npm:@modelcontextprotocol/sdk@^1.32.2",
       "npm:age-encryption@~0.3.1",
       "npm:otpauth@^9.5.2",
-      "npm:playwright-core@^1.64.1",
+      "npm:playwright-core@1.61",
       "npm:zod@^4.6.7"
     ]
   }
