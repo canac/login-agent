@@ -1,0 +1,39 @@
+{
+  "name": "@canac/login-agent",
+  "version": "0.1.0",
+  "license": "MIT",
+  "exports": "./src/cli.ts",
+  "nodeModulesDir": "none",
+  "compilerOptions": {
+    "lib": [
+      "deno.ns",
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ]
+  },
+  "imports": {
+    "@modelcontextprotocol/sdk/": "npm:/@modelcontextprotocol/sdk@^1.32.2/",
+    "age-encryption": "npm:age-encryption@^0.3.1",
+    "otpauth": "npm:otpauth@^9.5.2",
+    "playwright-core": "npm:playwright-core@^1.64.1",
+    "zod": "npm:zod@^4.6.7"
+  },
+  "tasks": {
+    "check": "deno check src test test/fixtures/bw-bin/bw",
+    "test": "deno test --allow-env --allow-read --allow-write --allow-net --allow-sys --allow-run=bw,age test/unit",
+    "test:e2e": "deno test --allow-all test/e2e",
+    "install": "deno install --global --force --name login-agent --quiet --config=deno.json --allow-env --allow-read --allow-write --allow-net --allow-sys --allow-run=bw,fzf src/cli.ts"
+  },
+  "fmt": {
+    "lineWidth": 120,
+    "proseWrap": "never"
+  },
+  "publish": {
+    "include": [
+      "LICENSE",
+      "README.md",
+      "src/**/*.ts"
+    ]
+  }
+}

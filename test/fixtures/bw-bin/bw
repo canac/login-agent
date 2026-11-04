@@ -1,0 +1,34 @@
+#!/usr/bin/env -S deno run --allow-all
+// Stand-in for the Bitwarden CLI in tests. Items come from the JSON array in FAKE_BW_STORE;
+// each argv is appended to FAKE_BW_LOG.
+import { appendFileSync, readFileSync } from "node:fs";
+
+const args = process.argv.slice(2);
+if (process.env.FAKE_BW_LOG) appendFileSync(process.env.FAKE_BW_LOG, JSON.stringify(args) + "\n");
+const store = process.env.FAKE_BW_STORE;
+if (!store) throw new Error("FAKE_BW_STORE is not set");
+const items: { id: string; name: string }[] = JSON.parse(readFileSync(store, "utf8"));
+const out = (s: string) => process.stdout.write(s);
+
+switch (`${args[0]} ${args[1] ?? ""}`.trim()) {
+  case "sync":
+    out("Syncing complete.");
+    break;
+  case "list items": {
+    const search = args.includes("--search") ? args[args.indexOf("--search") + 1].toLowerCase() : "";
+    out(JSON.stringify(items.filter((i) => i.name.toLowerCase().includes(search))));
+    break;
+  }
+  case "get item": {
+    const item = items.find((i) => i.id === args[2]);
+    if (!item) {
+      process.stderr.write("Not found.\n");
+      process.exit(1);
+    }
+    out(JSON.stringify(item));
+    break;
+  }
+  default:
+    process.stderr.write(`fake bw: unsupported ${args.join(" ")}\n`);
+    process.exit(1);
+}
