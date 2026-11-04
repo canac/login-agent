@@ -21,9 +21,25 @@
   },
   "tasks": {
     "check": "deno check src test test/fixtures/bw-bin/bw",
-    "test": "deno test --allow-env --allow-read --allow-write --allow-net --allow-sys --allow-run=bw,age test/unit",
+    "test": "deno test --permission-set",
     "test:e2e": "deno test --allow-all test/e2e",
     "install": "deno install --global --force --name login-agent --quiet --config=deno.json --allow-env --allow-read --allow-write --allow-net --allow-sys --allow-run=bw,fzf src/cli.ts"
+  },
+  "test": {
+    "include": [
+      "test/unit"
+    ],
+    "permissions": {
+      "env": true,
+      "read": true,
+      "write": true,
+      "net": true,
+      "sys": true,
+      "run": [
+        "bw",
+        "age"
+      ]
+    }
   },
   "fmt": {
     "lineWidth": 120,

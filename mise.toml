@@ -1,2 +1,6 @@
 [tools]
 age = "1"
+lefthook = "2"
+
+[tasks]
+setup = "lefthook install"

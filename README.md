@@ -110,7 +110,8 @@ Multi-page logins take one call per page. For example, an SSO login: `fill("sso"
 `deno task install` installs the `login-agent` command from a checkout, so code changes apply right away; run it again after changing dependencies.
 
 ```bash
-mise install        # age, for the test that decrypts the store with the age CLI
+mise install        # age, for the test that decrypts the store with the age CLI; lefthook
+mise run setup      # install the pre-commit hooks
 deno task check
 deno task test      # unit: store (round trip, wrong key, schema, age CLI interop), import helpers, TOTP RFC 6238 vectors
 deno task test:e2e  # fill: headless Chrome + local test site over real stdio MCP; import: fake bw
