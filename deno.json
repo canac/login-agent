@@ -14,10 +14,10 @@
   },
   "imports": {
     "@modelcontextprotocol/sdk/": "npm:/@modelcontextprotocol/sdk@^1.32.2/",
-    "age-encryption": "npm:age-encryption@^0.3.1",
-    "otpauth": "npm:otpauth@^9.5.2",
+    "age-encryption": "jsr:@age/age-encryption@^0.3.1",
+    "otpauth": "jsr:@hectorm/otpauth@^9.6.0",
     "playwright-core": "npm:playwright-core@~1.61.0",
-    "zod": "npm:zod@^4.6.7"
+    "zod": "jsr:@zod/zod@^4.6.7"
   },
   "tasks": {
     "check": "deno check src test test/fixtures/bw-bin/bw",

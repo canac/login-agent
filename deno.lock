@@ -1,11 +1,34 @@
 {
   "version": "5",
   "specifiers": {
+    "jsr:@age/age-encryption@~0.3.1": "0.3.1",
+    "jsr:@hectorm/otpauth@^9.6.0": "9.6.0",
+    "jsr:@zod/zod@^4.6.7": "4.6.7",
     "npm:@modelcontextprotocol/sdk@^1.32.2": "1.32.2_zod@4.6.7",
-    "npm:age-encryption@~0.3.1": "0.3.1",
-    "npm:otpauth@^9.5.2": "9.6.0",
-    "npm:playwright-core@1.61": "1.61.1",
-    "npm:zod@^4.6.7": "4.6.7"
+    "npm:@noble/ciphers@^2.1.1": "2.4.0",
+    "npm:@noble/curves@^2.0.1": "2.0.1",
+    "npm:@noble/hashes@^2.0.1": "2.4.0",
+    "npm:@noble/post-quantum@~0.5.3": "0.5.4",
+    "npm:@scure/base@2": "2.4.0",
+    "npm:playwright-core@1.61": "1.61.1"
+  },
+  "jsr": {
+    "@age/age-encryption@0.3.1": {
+      "integrity": "c7464e925d2e4c58677b3191caa59af46294db5966c0e59087039e15263944d5",
+      "dependencies": [
+        "npm:@noble/ciphers",
+        "npm:@noble/curves",
+        "npm:@noble/hashes",
+        "npm:@noble/post-quantum",
+        "npm:@scure/base"
+      ]
+    },
+    "@hectorm/otpauth@9.6.0": {
+      "integrity": "eae84b9fffaad81584fe50931e26e8f61ed8574e245db1f78bf8d2aa09fd0e63"
+    },
+    "@zod/zod@4.6.7": {
+      "integrity": "6706868ce1e1907362e1bf008e298e482723345f0ba4125c43e5b9fd7960b186"
+    }
   },
   "npm": {
     "@hono/node-server@2.1.6_hono@4.13.16": {
@@ -66,16 +89,6 @@
       "dependencies": [
         "mime-types",
         "negotiator"
-      ]
-    },
-    "age-encryption@0.3.1": {
-      "integrity": "sha512-bYgd7lxM7tEANmb9bXf7xTFB3Qpq+JGKinVSdFh5MV+t2fJJZSTdKhWkvXTFJQGysZd+K9Dt3F+n+4DKazXlnQ==",
-      "dependencies": [
-        "@noble/ciphers",
-        "@noble/curves",
-        "@noble/hashes@2.4.0",
-        "@noble/post-quantum",
-        "@scure/base"
       ]
     },
     "ajv-formats@3.0.1_ajv@8.20.0": {
@@ -396,12 +409,6 @@
         "wrappy"
       ]
     },
-    "otpauth@9.6.0": {
-      "integrity": "sha512-qQXHTxcXohDhQjF1ZEbUVEpTIssFL2rd+2kHfw/McIVCbTLD6qAsbTCQxpXRLyeyUw6Ipjpykw4dWZL/zfIVqA==",
-      "dependencies": [
-        "@noble/hashes@2.4.0"
-      ]
-    },
     "parseurl@1.3.3": {
       "integrity": "sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ=="
     },
@@ -575,11 +582,11 @@
   },
   "workspace": {
     "dependencies": [
+      "jsr:@age/age-encryption@~0.3.1",
+      "jsr:@hectorm/otpauth@^9.6.0",
+      "jsr:@zod/zod@^4.6.7",
       "npm:@modelcontextprotocol/sdk@^1.32.2",
-      "npm:age-encryption@~0.3.1",
-      "npm:otpauth@^9.5.2",
-      "npm:playwright-core@1.61",
-      "npm:zod@^4.6.7"
+      "npm:playwright-core@1.61"
     ]
   }
 }
