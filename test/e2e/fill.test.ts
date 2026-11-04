@@ -90,11 +90,15 @@ before(async () => {
   chrome = spawn(
     CHROME!,
     ["--headless=new", "--remote-debugging-port=0", `--user-data-dir=${profile}`, "--no-first-run", "about:blank"],
-    { stdio: "ignore" },
+    { stdio: ["ignore", "ignore", "pipe"] },
   );
+  let chromeLog = "";
+  chrome.stderr!.on("data", (d) => (chromeLog += d));
   const port = await waitFor("Chrome DevToolsActivePort", () => {
     const file = join(profile, "DevToolsActivePort");
     return existsSync(file) ? readFileSync(file, "utf8").split("\n")[0] : undefined;
+  }).catch((error) => {
+    throw new Error(`${error.message} (Chrome exit code ${chrome.exitCode}):\n${chromeLog}`);
   });
   cdpUrl = `http://127.0.0.1:${port}`;
   agentBrowser = await chromium.connectOverCDP(cdpUrl);
